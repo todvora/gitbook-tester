@@ -12,7 +12,7 @@ describe(__filename, function() {
     })
     .fin(testDone)
     .done();
-  }, 10000);
+  }, 20000);
 
   it('should create book with plugins and parse content', function(testDone) {
       tester.builder()
@@ -25,7 +25,7 @@ describe(__filename, function() {
       })
       .fin(testDone)
       .done();
-  }, 10000);
+  }, 20000);
 
     it('should create book with plugins and parse content', function(testDone) {
         tester.builder()
@@ -38,6 +38,6 @@ describe(__filename, function() {
             })
             .fin(testDone)
             .done();
-    }, 10000);
+    }, 20000);
 });
 
