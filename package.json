@@ -1,10 +1,10 @@
 {
   "name": "gitbook-tester",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tester for gitbook plugins",
   "main": "index.js",
   "scripts": {
-    "postinstall" : "gitbook install",
+    "postinstall": "gitbook install",
     "lint": "jshint index.js spec/**.js lib/**.js",
     "pretest": "npm run lint",
     "test": "istanbul cover -x **/spec/** jasmine-node -- spec --verbose --captureExceptions",
