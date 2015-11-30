@@ -31,7 +31,7 @@
     "findit": "2.0.0",
     "q": "~1.2.0",
     "temp": "^0.8.3",
-    "gitbook-cli": "1.0.0"
+    "gitbook-cli": "1.0.1"
   },
   "devDependencies": {
     "jasmine-node": ">=1.14.5",
