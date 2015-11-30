@@ -46,7 +46,10 @@ plugin configuration or any valid as described in [official documentation](http:
 Can be omitted.
 
 ### .withLocalPlugin(path)
-Attach currently tested or developed plugin to generated gitbook. Should be called
+Attach currently tested or developed plugin to generated gitbook. All locally attached plugins will be automatically added
+ to ```book.json``` in ```plugins``` section.
+
+Should be called
 in form
 ```js
 .withLocalPlugin('/some/path/to/module')
