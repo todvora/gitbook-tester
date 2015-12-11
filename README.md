@@ -1,6 +1,7 @@
 # Gitbook integration tests framework
 
 [![Build Status](https://travis-ci.org/todvora/gitbook-tester.svg?branch=master)](https://travis-ci.org/todvora/gitbook-tester)
+[![npm version](https://badge.fury.io/js/gitbook-tester.svg)](https://badge.fury.io/js/gitbook-tester)
 
 No more mocking of gitbook build! Verify your gitbook-plugin against real, up-to-date
 version of gitbook. This integration framework creates temporary book, attaches your local gitbook plugin, runs gitbook build and returns parsed pages content.
