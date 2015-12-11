@@ -59,6 +59,19 @@ path to root of your plugin module. For example
 ```js
 .withLocalPlugin(require('path').join(__dirname, '..'))
 ```
+
+### .withFile(path, content)
+Allows to create a file inside book directory. You just provide path for the file and string content:
+
+```js
+.withFile('includes/test.md', 'included from an external file!')
+```
+Then you can use the file anyhow in your plugin or simply include its content in a page:
+
+```
+'This text is {% include "./includes/test.md" %}'
+```
+
 ### .create()
 Start build of the book. Generates all the book resources, installs required
 plugins, attaches provided local modules. Returns ```promise```.
