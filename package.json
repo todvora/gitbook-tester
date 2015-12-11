@@ -1,6 +1,6 @@
 {
   "name": "gitbook-tester",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Tester for gitbook plugins",
   "main": "index.js",
   "scripts": {
