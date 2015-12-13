@@ -78,6 +78,22 @@ Start build of the book. Generates all the book resources, installs required
 plugins, attaches provided local modules. Returns ```promise```.
 
 
+## Working with results
+
+```js
+.then(function(result) {
+  var index = result.get('index.html');
+  console.log(index);  
+})
+```
+should output JavaScript object like 
+```js
+{ path: 'index.html',
+  '$': [cheerio representation of the page] 
+  content: '<h1 id="test-me">test me</h1>' }
+
+```
+
 ## Complete test example
 How to write simple test, using node-jasmine.
 ```js

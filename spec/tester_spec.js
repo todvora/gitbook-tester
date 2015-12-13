@@ -10,8 +10,7 @@ describe(__filename, function() {
     .withContent('#test me \n\n![preview](preview.jpg)')
     .create()
     .then(function(result) {
-      expect(result.length).toEqual(1);
-      expect(result[0].content).toEqual('<h1 id="test-me">test me</h1>\n<p><img src="preview.jpg" alt="preview"></p>');
+      expect(result.get('index.html').content).toEqual('<h1 id="test-me">test me</h1>\n<p><img src="preview.jpg" alt="preview"></p>');
     })
     .fin(testDone)
     .done();
@@ -23,8 +22,7 @@ describe(__filename, function() {
       .withBookJson({"plugins": ["emphasize"]})
       .create()
       .then(function(result) {
-        expect(result.length).toEqual(1);
-        expect(result[0].content).toEqual('<p>This text is <span class="pg-emphasize pg-emphasize-yellow" style="">highlighted !</span></p>');
+        expect(result.get('index.html').content).toEqual('<p>This text is <span class="pg-emphasize pg-emphasize-yellow" style="">highlighted !</span></p>');
       })
       .fin(testDone)
       .done();
@@ -36,7 +34,7 @@ describe(__filename, function() {
       .withFile('includes/test.md', 'included from an external file!')
       .create()
       .then(function(result) {
-        expect(result[0].content).toEqual('<p>This text is included from an external file!</p>');
+        expect(result.get('index.html').content).toEqual('<p>This text is included from an external file!</p>');
       })
       .fin(testDone)
       .done();
