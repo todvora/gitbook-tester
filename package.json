@@ -27,12 +27,12 @@
   "license": "Apache 2",
   "dependencies": {
     "cheerio": "0.19.0",
-    "child-process-promise": "~1.0.2",
+    "child-process-promise": "~1.1.0",
     "findit": "2.0.0",
     "gitbook-cli": "1.0.1",
-    "lodash": "^3.10.1",
+    "lodash": "^4.2.0",
     "mkdirp": "^0.5.1",
-    "q": "~1.2.0",
+    "q": "~1.4.1",
     "temp": "^0.8.3",
     "winston": "^2.1.1"
   },

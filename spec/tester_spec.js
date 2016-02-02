@@ -40,6 +40,19 @@ describe(__filename, function() {
       .done();
   });
 
+  it('should add external second book page', function(testDone) {
+      tester.builder()
+      .withContent('First page content')
+      .withPage('second', 'Second page content')
+      .create()
+      .then(function(result) {
+        expect(result.get('index.html').content).toEqual('<p>First page content</p>');
+        expect(result.get('second.html').content).toEqual('<p>Second page content</p>');
+      })
+      .fin(testDone)
+      .done();
+  });
+
 
 
 });

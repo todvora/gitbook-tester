@@ -1,7 +1,10 @@
 # Gitbook integration tests framework
 
 [![Build Status](https://travis-ci.org/todvora/gitbook-tester.svg?branch=master)](https://travis-ci.org/todvora/gitbook-tester)
+[![Coverage Status](https://coveralls.io/repos/github/todvora/gitbook-tester/badge.svg?branch=master)](https://coveralls.io/github/todvora/gitbook-tester?branch=master)
 [![npm version](https://badge.fury.io/js/gitbook-tester.svg)](https://badge.fury.io/js/gitbook-tester)
+[![Dependencies Status](https://david-dm.org/todvora/gitbook-tester/status.svg)](https://david-dm.org/todvora/gitbook-tester/)
+[![DevDependencies Status](https://david-dm.org/todvora/gitbook-tester/dev-status.svg)](https://david-dm.org/todvora/gitbook-tester/#info=devDependencies)
 
 No more mocking of gitbook build! Verify your gitbook-plugin against real, up-to-date
 version of gitbook. This integration framework creates temporary book, attaches your local gitbook plugin, runs gitbook build and returns parsed pages content.
@@ -38,8 +41,29 @@ tester.builder()
 On the builder following methods can be called:
 
 ### .withContent(markdownString)
-Put some **Markdown** content to the generated book. Currently only single
-page book supported (contains only README.md).
+Put some **Markdown** content to the generated books README.md (initial/intro page).
+
+### .withPage(pageName, pageContent)
+Add another book page. Usage like
+```js
+  .withPage('second', 'Second page content')
+```
+There is no need of specifying extension, ```.md``` will be automatically added.
+The rendered page can be accessed later in tests like
+```js
+it('should add second book page', function(testDone) {
+    tester.builder()
+    .withContent('First page content')
+    .withPage('second', 'Second page content')
+    .create()
+    .then(function(result) {
+      expect(result.get('second.html').content).toEqual('<p>Second page content</p>');
+    })
+    .fin(testDone)
+    .done();
+});
+```
+
 
 ### .withBookJson(jsObject)
 Put your own ```book.json``` content as a JS object. May contain plugins,
@@ -86,10 +110,10 @@ plugins, attaches provided local modules. Returns ```promise```.
   console.log(index);  
 })
 ```
-should output JavaScript object like 
+should output JavaScript object like
 ```js
 { path: 'index.html',
-  '$': [cheerio representation of the page] 
+  '$': [cheerio representation of the page]
   content: '<h1 id="test-me">test me</h1>' }
 
 ```
