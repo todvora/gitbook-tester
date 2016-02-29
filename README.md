@@ -118,6 +118,12 @@ should output JavaScript object like
 
 ```
 
+## Force a specific gitbook version
+You can test your plugin against a specific gitbook version by providing ENV variable like ```GITBOOK_VERSION=2.6.7```. This could be used for example in [Travis-CI build matrix](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix).
+
+## Debugging
+If you wish to see detailed output of the build and gitbook logs itself, provide ENV variable ```DEBUG=true```.
+
 ## Complete test example
 How to write simple test, using node-jasmine.
 ```js
