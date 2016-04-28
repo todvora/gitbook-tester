@@ -43,7 +43,7 @@ On the builder following methods can be called:
 ### .withContent(markdownString)
 Put some **Markdown** content to the generated books README.md (initial/intro page).
 
-### .withPage(pageName, pageContent)
+### .withPage(pageName, pageContent[, level])
 Add another book page. Usage like
 ```js
   .withPage('second', 'Second page content')
@@ -64,6 +64,7 @@ it('should add second book page', function(testDone) {
 });
 ```
 
+**Level**: how nested should be this page, optional parameter. ```0``` for top level page, ```1``` for second, ```2``` for third... 
 
 ### .withBookJson(jsObject)
 Put your own ```book.json``` content as a JS object. May contain plugins,
