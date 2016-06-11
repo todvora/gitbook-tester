@@ -53,6 +53,17 @@ describe(__filename, function() {
       .done();
   });
 
-
+  it('should create pages in a subdirectory', function(testDone) {
+    tester.builder()
+      .withPage('subdirectory/nested', 'This page is in the directory `subdirectory`.', 1)
+      .withPage('subdirectory/also_nested', 'This page is also in the directory `subdirectory`.', 1)
+      .create()
+      .then(function(result) {
+        expect(result.get('subdirectory/nested.html').content).toEqual('<p>This page is in the directory <code>subdirectory</code>.</p>');
+        expect(result.get('subdirectory/also_nested.html').content).toEqual('<p>This page is also in the directory <code>subdirectory</code>.</p>');
+      })
+      .fin(testDone)
+      .done();
+  });
 
 });
