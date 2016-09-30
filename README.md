@@ -41,7 +41,7 @@ tester.builder()
 On the builder, the following methods can be called:
 
 ### .withContent(markdownString)
-Put some **Markdown** content into the generated books README.md (initial/intro page).
+Put some **Markdown** content into the generated book's README.md (initial/intro page).
 
 ### .withPage(pageName, pageContent[, level])
 Add another book page. For example:
@@ -68,19 +68,19 @@ it('should add second book page', function(testDone) {
 
 ### .withBookJson(jsObject)
 Put your own ```book.json``` content as a JS object. May contain plugins,
-the plugin configuration or anything valid as described in [official documentation](http://help.gitbook.com/format/configuration.html).
-Can be omitted.
+the plugin configuration or anything valid as described in the [official documentation](http://help.gitbook.com/format/configuration.html).
+Can also be omitted.
 
 ### .withLocalPlugin(path)
 Attach currently tested or developed plugin to the generated gitbook. All locally attached plugins will be automatically added
- to ```book.json``` in ```plugins``` section.
+ to ```book.json``` in the ```plugins``` section.
 
 Should be called
-in form
+using the following format:
 ```js
 .withLocalPlugin('/some/path/to/module')
 ```
-If you run your tests from dir ```spec``` of your plugin, you should provide the
+If you run your tests from the dir ```spec``` of your plugin, you should provide the
 path to the root of your plugin module. For example:
 ```js
 .withLocalPlugin(require('path').join(__dirname, '..'))
@@ -120,7 +120,7 @@ should output JavaScript object like
 ```
 
 ## Force a specific gitbook version
-You can test your plugin against a specific gitbook version by providing the ENV variable like ```GITBOOK_VERSION=2.6.7```. This could be used, for example, in [Travis-CI build matrix](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix).
+You can test your plugin against a specific gitbook version by providing an ENV variable like ```GITBOOK_VERSION=2.6.7```. This could be used, for example, in [Travis-CI build matrix](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix).
 
 ## Debugging
 If you wish to see detailed output of the build and the gitbook logs, provide the ENV variable ```DEBUG=true```.
