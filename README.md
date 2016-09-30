@@ -7,7 +7,7 @@
 [![DevDependencies Status](https://david-dm.org/todvora/gitbook-tester/dev-status.svg)](https://david-dm.org/todvora/gitbook-tester/#info=devDependencies)
 
 No more mocking of ```gitbook build```! Verify your gitbook-plugin against a real, up-to-date
-version of gitbook. This integration framework creates a temporary book, attaches your local gitbook plugin, runs gitbook build and returns the parsed pages content.
+version of gitbook. This integration framework creates a temporary book, attaches your local gitbook plugin, runs ```gitbook build``` and returns the parsed pages content.
 
 All the book resources are generated and executed in a temporary directory (exact location
   depends on your operating system). Resources are cleaned up upon test phase.
@@ -17,7 +17,7 @@ All the book resources are generated and executed in a temporary directory (exac
 ```js
 var tester = require('gitbook-tester');
 tester.builder()
-  .withContent('This text is {% em %}highlighted !{% endem %}')
+  .withContent('This text is {% em %}highlighted!{% endem %}')
   .withBookJson({"plugins": ["emphasize"]})
   .create()
   .then(function(result) {
