@@ -64,7 +64,7 @@ it('should add second book page', function(testDone) {
 });
 ```
 
-**Level**: how nested should be this page, optional parameter. ```0``` for top level page, ```1``` for second, ```2``` for third... 
+**Level**: how nested should be this page, optional parameter. ```0``` for top level page, ```1``` for second, ```2``` for third...
 
 ### .withBookJson(jsObject)
 Put your own ```book.json``` content as a JS object. May contain plugins,
@@ -148,3 +148,6 @@ describe("my first gitbook integration test", function() {
   });
 });
 ```
+
+## License
+This project is available under [Apache-2.0](http://choosealicense.com/licenses/apache-2.0/) license.
