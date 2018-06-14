@@ -65,5 +65,18 @@ describe(__filename, function() {
       .fin(testDone)
       .done();
   });
+  
+  it('should add html file and not mofify them', function(testDone) {
+      tester.builder()
+      .withContent('This text is simple')
+      .withFile('includes/test.html', '<h1>This is an included file</h1>')
+      .create()
+      .then(function(result) {
+        expect(result.get('index.html').content).toEqual('<p>This text is simple</p>');
+        expect(result.get('includes/test.html').content).toEqual('<h1>This is an included file</h1>');
+      })
+      .fin(testDone)
+      .done();
+  });
 
 });
